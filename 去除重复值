@@ -1,0 +1,17 @@
+import pandas as pd
+detail = pd.read_csv('C:/Users/1701/Desktop/wt09303.csv',
+    index_col=0,encoding = 'gbk')
+
+##方法一
+##定义去重函数
+def delRep(list1):
+    list2=[]
+    for i in list1:
+        if i not in list2:
+            list2.append(i)
+    return list2 
+## 去重
+dishes=list(detail['REAL_POWER']) ##将'REAL_POWER'从数据框中提取出来
+print('去重前菜品总数为：',len(dishes)) 
+dish = delRep(dishes) ##使用自定义的去重函数去重
+print('方法一去重后菜品总数为：',len(dish))
